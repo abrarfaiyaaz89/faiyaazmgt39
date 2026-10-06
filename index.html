@@ -62,10 +62,11 @@ footer{text-align:center;color:var(--mu);font-size:13px;padding:30px 0 50px}
 const CATEGORIES=[{id:"notes",name:"Notes",icon:"📝"},{id:"slides",name:"Slides",icon:"🖥️"},{id:"books",name:"Books",icon:"📚"},{id:"syllabus",name:"Syllabus",icon:"📋"},{id:"questions",name:"Recent Year Questions",icon:"🧾"}];
 const SEMESTERS=[
  {id:"1",name:"1st Semester",courses:[
-  {id:"intro-business",name:"Introduction to Business",code:"",files:{notes:[],slides:[],books:[],syllabus:[],questions:[]}},
-  {id:"pom",name:"Principles of Management",code:"BCC 104",files:{notes:[],slides:[],books:[],syllabus:[],questions:[]}},
-  {id:"math",name:"Basic Mathematics",code:"BCC 103",files:{notes:[],slides:[],books:[],syllabus:[],questions:[]}},
-  {id:"comm",name:"Essentials in Communication",code:"BCC 105",files:{notes:[],slides:[],books:[],syllabus:[],questions:[]}}
+  {id:"intro-business",name:"Introduction to Business",code:"BCC-101",teacher:"Prof. Dr. Md. Harisur Rahman Howladar",files:{notes:[],slides:[],books:[],syllabus:[],questions:[]}},
+  {id:"basic-accounting",name:"Basic Accounting",code:"BCC-102",teacher:"Mrs. Dipa Das",files:{notes:[],slides:[],books:[],syllabus:[],questions:[]}},
+  {id:"math",name:"Basic Mathematics",code:"BCC-103",teacher:"Prof. Dr. Anupam Kumar Das",files:{notes:[],slides:[],books:[],syllabus:[],questions:[]}},
+  {id:"pom",name:"Principles of Management",code:"BCC-104",teacher:"Prof. Dr. Shameema Ferdausy",files:{notes:[],slides:[],books:[],syllabus:[],questions:[]}},
+  {id:"comm",name:"Essentials in Communications",code:"BCC-105",teacher:"Prof. Sharmeen Ahmed",files:{notes:[],slides:[],books:[],syllabus:[],questions:[]}}
  ]}
 ];
 const PHOTOS=[{src:"group.jpg",alt:"Management 39 batch group photo on campus",caption:"Management 39 — our batch"}];
@@ -88,8 +89,8 @@ function route(){
  else if(t=="semesters")h=`<section class="fade"><h2>Semesters</h2><p class="sub">Choose a semester.</p><div class="grid">${semCards()}</div></section>`;
  else if(t=="m39")h=`<section class="fade"><h2>Management 39</h2><p class="sub">Our batch.</p>${gallery()}</section>`;
  else if(t=="about")h=`<section class="fade"><h2>Built by ${e(DEV.name)}</h2><p class="sub">The person behind the site.</p>${about()}</section>`;
- else if(t=="s"&&sem&&!b)h=`<section class="fade"><div class="crumb"><a href="#/semesters">Semesters</a> / ${e(sem.name)}</div><h2>${e(sem.name)}</h2><p class="sub">Select a course.</p><div class="grid">${sem.courses.map(x=>`<a class="card" href="#/s/${sem.id}/${x.id}"><div class="ic">📘</div><h3>${e(x.name)}</h3><small>${e(x.code)}</small></a>`).join("")}</div></section>`;
- else if(t=="s"&&co&&!c)h=`<section class="fade"><div class="crumb"><a href="#/semesters">Semesters</a> / <a href="#/s/${sem.id}">${e(sem.name)}</a> / ${e(co.name)}</div><h2>${e(co.name)}</h2><p class="sub">Select a resource type.</p><div class="grid">${CATEGORIES.map(k=>`<a class="card" href="#/s/${sem.id}/${co.id}/${k.id}"><div class="ic">${k.icon}</div><h3>${k.name}</h3><small>${(co.files[k.id]||[]).length} files</small></a>`).join("")}</div></section>`;
+ else if(t=="s"&&sem&&!b)h=`<section class="fade"><div class="crumb"><a href="#/semesters">Semesters</a> / ${e(sem.name)}</div><h2>${e(sem.name)}</h2><p class="sub">Select a course.</p><div class="grid">${sem.courses.map(x=>`<a class="card" href="#/s/${sem.id}/${x.id}"><div class="ic">📘</div><h3>${e(x.name)}</h3><small>${e(x.code)}${x.teacher?"<br>"+e(x.teacher):""}</small></a>`).join("")}</div></section>`;
+ else if(t=="s"&&co&&!c)h=`<section class="fade"><div class="crumb"><a href="#/semesters">Semesters</a> / <a href="#/s/${sem.id}">${e(sem.name)}</a> / ${e(co.name)}</div><h2>${e(co.name)}</h2><p class="sub">${e(co.code)}${co.teacher?" · "+e(co.teacher):""}</p><div class="grid">${CATEGORIES.map(k=>`<a class="card" href="#/s/${sem.id}/${co.id}/${k.id}"><div class="ic">${k.icon}</div><h3>${k.name}</h3><small>${(co.files[k.id]||[]).length} files</small></a>`).join("")}</div></section>`;
  else if(t=="s"&&co&&cat){const fs=co.files[cat.id]||[],base=`#/s/${sem.id}/${co.id}`,cr=`<div class="crumb"><a href="#/semesters">Semesters</a> / <a href="#/s/${sem.id}">${e(sem.name)}</a> / <a href="${base}">${e(co.name)}</a> / ${cat.name}</div>`;
   if(d!==undefined&&fs[d]){const f=fs[d];h=`<section class="fade">${cr}<h2>${e(f.title)}</h2><div class="bar"><a class="btn o" href="${base}/${cat.id}">← Back</a><a class="btn o" href="${e(f.url)}" target="_blank" rel="noopener">Open in new tab</a><a class="btn" href="${e(f.url)}" download>Download</a></div><iframe class="viewer" src="${e(f.url)}" title="${e(f.title)}" loading="lazy"></iframe></section>`}
   else h=`<section class="fade">${cr}<h2>${cat.name}</h2><p class="sub">${e(co.name)}</p>${fs.length?fs.map((f,i)=>`<a class="file" href="${base}/${cat.id}/${i}"><div><b>📄 ${e(f.title)}</b><small>${e(f.size||"PDF")}</small></div><span class="pill" style="margin:0">View</span></a>`).join(""):`<div class="empty">No files here yet. Check back soon!</div>`}</section>`}
