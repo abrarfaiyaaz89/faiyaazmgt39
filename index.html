@@ -44,13 +44,18 @@ section{padding:44px 0}h2{font-size:clamp(24px,5vw,32px);margin-bottom:6px}.sub{
 .dev{display:flex;align-items:center;gap:24px;background:var(--card);border:1px solid var(--bd);border-radius:28px;padding:24px;box-shadow:var(--sh);flex-wrap:wrap}
 .dev img{width:130px;height:130px;border-radius:50%;object-fit:cover;object-position:50% 35%;border:3px solid var(--ac2)}
 .dev h3{font-size:22px}.dev p{margin:2px 0;color:var(--mu)}.dev a{color:var(--ac);font-weight:500}
+.ach{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
+.ach article{background:var(--card);border:1px solid var(--bd);border-radius:22px;overflow:hidden;box-shadow:var(--sh);transition:.25s}
+.ach article:hover{transform:translateY(-4px);border-color:var(--ac)}
+.ach img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
+.ach .b{padding:18px 20px}.ach h3{font-size:18px;margin:8px 0 6px}.ach p{margin:0;color:var(--mu);font-size:15px}
 footer{text-align:center;color:var(--mu);font-size:13px;padding:30px 0 50px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 .fade{animation:f .4s ease both}@keyframes f{from{opacity:0;transform:translateY(8px)}}
 </style></head><body>
 <nav><div class="w"><a class="logo" href="#/">Faiyaaz <span>MGT 39</span></a>
 <button class="burger" id="bg" aria-label="Menu" aria-expanded="false">☰</button>
-<div class="links" id="ln"><a href="#/">Home</a><a href="#/semesters">Semesters</a><a href="#/m39">Management 39</a><a href="#/about">About</a></div></div></nav>
+<div class="links" id="ln"><a href="#/">Home</a><a href="#/semesters">Semesters</a><a href="#/m39">Management 39</a><a href="#/achievements">Achievements</a><a href="#/about">About</a></div></div></nav>
 <main id="app" class="w"></main>
 <footer>© <span id="yr"></span> faiyaazmgt39.com · Made for Management 39</footer>
 <script>
@@ -67,9 +72,18 @@ const SEMESTERS=[
   {id:"math",name:"Basic Mathematics",code:"BCC-103",teacher:"Prof. Dr. Anupam Kumar Das",files:{notes:[],slides:[],books:[],syllabus:[],questions:[]}},
   {id:"pom",name:"Principles of Management",code:"BCC-104",teacher:"Prof. Dr. Shameema Ferdausy",files:{notes:[],slides:[],books:[],syllabus:[],questions:[]}},
   {id:"comm",name:"Essentials in Communications",code:"BCC-105",teacher:"Prof. Sharmeen Ahmed",files:{notes:[],slides:[],books:[],syllabus:[],questions:[]}}
+ ]},
+ {id:"2",name:"2nd Semester",courses:[
+  {id:"marketing",name:"Principles of Marketing",code:"BCC-106",teacher:"Prof. Abu Mohammad Atiqur Rahman",files:{notes:[],slides:[],books:[],syllabus:[],questions:[]}},
+  {id:"macro",name:"Macroeconomics",code:"GED-107",teacher:"Prof. Dr. Anupam Kumar Das",files:{notes:[],slides:[],books:[],syllabus:[],questions:[]}},
+  {id:"stat",name:"Basic Statistics",code:"GED-108",teacher:"Prof. Dr. Mohammad Khaled Afzal",files:{notes:[],slides:[],books:[],syllabus:[],questions:[]}},
+  {id:"law",name:"Business Law",code:"BCC-109",teacher:"Prof. Dr. Md. Mizanur Rahman Chowdhury",files:{notes:[],slides:[],books:[],syllabus:[],questions:[]}},
+  {id:"ict",name:"Information and Communication Technology",code:"GED-110",teacher:"Mrs. Chowdhury Ummeh Kulsum",files:{notes:[],slides:[],books:[],syllabus:[],questions:[]}}
  ]}
 ];
 const PHOTOS=[{src:"group.jpg",alt:"Management 39 batch group photo on campus",caption:"Management 39 — our batch"}];
+/* Add achievements here: {title:"...",date:"Oct 2026",text:"short description",photo:"optional-photo.jpg"} (comma between items) */
+const ACHIEVEMENTS=[];
 const DEV={name:"Abrar Faiyaaz",role:"MGT-39 · Web Developer",phone:"01852268399",email:"abrarfaiyaaz89@gmail.com",photo:"abrar.jpg"};
 /* ============ UI ============ */
 const $=s=>document.querySelector(s),app=$("#app"),e=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -77,10 +91,12 @@ $("#yr").textContent=new Date().getFullYear();
 const bg=$("#bg"),ln=$("#ln");bg.onclick=()=>{const o=ln.classList.toggle("open");bg.setAttribute("aria-expanded",o)};
 const semCards=()=>SEMESTERS.map(s=>`<a class="card" href="#/s/${s.id}"><div class="ic">🎓</div><h3>${e(s.name)}</h3><small>${s.courses.length} courses</small></a>`).join("");
 const gallery=()=>`<div class="gal">${PHOTOS.map(p=>`<figure><img src="${p.src}" alt="${e(p.alt)}" loading="lazy" decoding="async"><figcaption>${e(p.caption)}</figcaption></figure>`).join("")}</div>`;
+const achv=()=>ACHIEVEMENTS.length?`<div class="ach">${ACHIEVEMENTS.map(x=>`<article>${x.photo?`<img src="${e(x.photo)}" alt="${e(x.title)}" loading="lazy" decoding="async">`:""}<div class="b">${x.date?`<span class="pill" style="margin:0">${e(x.date)}</span>`:""}<h3>${e(x.title)}</h3>${x.text?`<p>${e(x.text)}</p>`:""}</div></article>`).join("")}</div>`:`<div class="empty">Our achievements will be added here soon.</div>`;
 const about=()=>`<div class="dev"><img src="${DEV.photo}" alt="Portrait of ${e(DEV.name)}, web developer" loading="lazy"><div><small style="color:var(--mu)">Built by</small><h3>${e(DEV.name)}</h3><p>${e(DEV.role)}</p><p><a href="tel:${DEV.phone}">${DEV.phone}</a> · <a href="mailto:${DEV.email}">${DEV.email}</a></p></div></div>`;
 const home=()=>`<div class="hero fade"><span class="pill">Management 39 · Academic Hub</span><h1>Notes, slides &amp; <span>past questions</span>, all in one place.</h1><p>A student-built archive for Management 39. Pick your semester, open a course, and read PDFs right here.</p><a class="btn" href="#/semesters">Explore Notes →</a></div>
 <section id="sem"><h2>Semesters</h2><p class="sub">Choose a semester to see its courses.</p><div class="grid">${semCards()}</div></section>
 <section><h2>Management 39</h2><p class="sub">Our batch.</p>${gallery()}</section>
+<section><h2>Achievements</h2><p class="sub">What Management 39 has accomplished.</p>${achv()}</section>
 <section><h2>Built by ${e(DEV.name)}</h2><p class="sub">The person behind the site.</p>${about()}</section>`;
 function route(){
  const p=location.hash.replace(/^#\/?/,"").split("/").filter(Boolean),[t,a,b,c,d]=p;let h="";
@@ -88,6 +104,7 @@ function route(){
  if(!t)h=home();
  else if(t=="semesters")h=`<section class="fade"><h2>Semesters</h2><p class="sub">Choose a semester.</p><div class="grid">${semCards()}</div></section>`;
  else if(t=="m39")h=`<section class="fade"><h2>Management 39</h2><p class="sub">Our batch.</p>${gallery()}</section>`;
+ else if(t=="achievements")h=`<section class="fade"><h2>Achievements</h2><p class="sub">What Management 39 has accomplished.</p>${achv()}</section>`;
  else if(t=="about")h=`<section class="fade"><h2>Built by ${e(DEV.name)}</h2><p class="sub">The person behind the site.</p>${about()}</section>`;
  else if(t=="s"&&sem&&!b)h=`<section class="fade"><div class="crumb"><a href="#/semesters">Semesters</a> / ${e(sem.name)}</div><h2>${e(sem.name)}</h2><p class="sub">Select a course.</p><div class="grid">${sem.courses.map(x=>`<a class="card" href="#/s/${sem.id}/${x.id}"><div class="ic">📘</div><h3>${e(x.name)}</h3><small>${e(x.code)}${x.teacher?"<br>"+e(x.teacher):""}</small></a>`).join("")}</div></section>`;
  else if(t=="s"&&co&&!c)h=`<section class="fade"><div class="crumb"><a href="#/semesters">Semesters</a> / <a href="#/s/${sem.id}">${e(sem.name)}</a> / ${e(co.name)}</div><h2>${e(co.name)}</h2><p class="sub">${e(co.code)}${co.teacher?" · "+e(co.teacher):""}</p><div class="grid">${CATEGORIES.map(k=>`<a class="card" href="#/s/${sem.id}/${co.id}/${k.id}"><div class="ic">${k.icon}</div><h3>${k.name}</h3><small>${(co.files[k.id]||[]).length} files</small></a>`).join("")}</div></section>`;
