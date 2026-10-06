@@ -49,13 +49,23 @@ section{padding:44px 0}h2{font-size:clamp(24px,5vw,32px);margin-bottom:6px}.sub{
 .ach article:hover{transform:translateY(-4px);border-color:var(--ac)}
 .ach img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
 .ach .b{padding:18px 20px}.ach h3{font-size:18px;margin:8px 0 6px}.ach p{margin:0;color:var(--mu);font-size:15px}
+.evc{display:block;background:var(--card);border:1px solid var(--bd);border-radius:22px;overflow:hidden;box-shadow:var(--sh);transition:.25s}
+.evc:hover{transform:translateY(-4px);border-color:var(--ac)}
+.evc .cv{aspect-ratio:16/10;background:linear-gradient(135deg,var(--ac2),var(--bg));display:grid;place-items:center;font-size:34px}
+.evc img{display:block;width:100%;height:100%;object-fit:cover}
+.evc .cv{overflow:hidden}.evc .b{padding:16px 20px}.evc h3{font-size:18px}.evc small{color:var(--mu)}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.pg img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;cursor:zoom-in;transition:.25s;border:1px solid var(--bd)}
+.pg img:hover{transform:scale(1.03)}
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:50;align-items:center;justify-content:center;padding:12px;cursor:zoom-out}
+.lb.on{display:flex}.lb img{max-width:100%;max-height:100%;border-radius:12px}
 footer{text-align:center;color:var(--mu);font-size:13px;padding:30px 0 50px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 .fade{animation:f .4s ease both}@keyframes f{from{opacity:0;transform:translateY(8px)}}
 </style></head><body>
 <nav><div class="w"><a class="logo" href="#/">Faiyaaz <span>MGT 39</span></a>
 <button class="burger" id="bg" aria-label="Menu" aria-expanded="false">☰</button>
-<div class="links" id="ln"><a href="#/">Home</a><a href="#/semesters">Semesters</a><a href="#/m39">Management 39</a><a href="#/achievements">Achievements</a><a href="#/about">About</a></div></div></nav>
+<div class="links" id="ln"><a href="#/">Home</a><a href="#/semesters">Semesters</a><a href="#/m39">Management 39</a><a href="#/events">Event Memories</a><a href="#/achievements">Achievements</a><a href="#/about">About</a></div></div></nav>
 <main id="app" class="w"></main>
 <footer>© <span id="yr"></span> faiyaazmgt39.com · Made for Management 39</footer>
 <script>
@@ -84,6 +94,13 @@ const SEMESTERS=[
 const PHOTOS=[{src:"group.jpg",alt:"Management 39 batch group photo on campus",caption:"Management 39 — our batch"}];
 /* Add achievements here: {title:"...",date:"Oct 2026",text:"short description",photo:"optional-photo.jpg"} (comma between items) */
 const ACHIEVEMENTS=[];
+/* Event Memories: add photos by listing file names in photos:["a.jpg","b.jpg"]; add a new event as a new {..} line */
+const EVENTS=[
+ {id:"asharer-ashor",name:"আষাঢ়ের আসর",date:"",place:"",photos:[]},
+ {id:"freshers-odyssey",name:"Fresher’s Odyssey",date:"13 Aug 2026",place:"FBA Auditorium · presented by Management 38",photos:["fresher-01.jpg","fresher-02.jpg","fresher-03.jpg","fresher-04.jpg","fresher-05.jpg","fresher-06.jpg","fresher-07.jpg","fresher-08.jpg","fresher-09.jpg","fresher-10.jpg","fresher-11.jpg","fresher-12.jpg"]},
+ {id:"hall-fest-2026",name:"Hall Fest-2026",date:"10 Sep 2026",place:"Shahjalal Hall Dining · Department of Management",photos:["hallfest-01.jpg","hallfest-02.jpg","hallfest-03.jpg","hallfest-04.jpg","hallfest-05.jpg","hallfest-06.jpg"]}
+];
+
 const DEV={name:"Abrar Faiyaaz",role:"MGT-39 · Web Developer",phone:"01852268399",email:"abrarfaiyaaz89@gmail.com",photo:"abrar.jpg"};
 /* ============ UI ============ */
 const $=s=>document.querySelector(s),app=$("#app"),e=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -92,10 +109,12 @@ const bg=$("#bg"),ln=$("#ln");bg.onclick=()=>{const o=ln.classList.toggle("open"
 const semCards=()=>SEMESTERS.map(s=>`<a class="card" href="#/s/${s.id}"><div class="ic">🎓</div><h3>${e(s.name)}</h3><small>${s.courses.length} courses</small></a>`).join("");
 const gallery=()=>`<div class="gal">${PHOTOS.map(p=>`<figure><img src="${p.src}" alt="${e(p.alt)}" loading="lazy" decoding="async"><figcaption>${e(p.caption)}</figcaption></figure>`).join("")}</div>`;
 const achv=()=>ACHIEVEMENTS.length?`<div class="ach">${ACHIEVEMENTS.map(x=>`<article>${x.photo?`<img src="${e(x.photo)}" alt="${e(x.title)}" loading="lazy" decoding="async">`:""}<div class="b">${x.date?`<span class="pill" style="margin:0">${e(x.date)}</span>`:""}<h3>${e(x.title)}</h3>${x.text?`<p>${e(x.text)}</p>`:""}</div></article>`).join("")}</div>`:`<div class="empty">Our achievements will be added here soon.</div>`;
+const evCards=()=>`<div class="ach">${EVENTS.map(v=>`<a class="evc" href="#/events/${v.id}"><div class="cv">${v.photos.length?`<img src="${v.photos[0]}" alt="${e(v.name)}" loading="lazy" decoding="async">`:"📸"}</div><div class="b"><h3>${e(v.name)}</h3><small>${v.photos.length?v.photos.length+" photos":"Photos coming soon"}${v.date?" · "+e(v.date):""}</small></div></a>`).join("")}</div>`;
 const about=()=>`<div class="dev"><img src="${DEV.photo}" alt="Portrait of ${e(DEV.name)}, web developer" loading="lazy"><div><small style="color:var(--mu)">Built by</small><h3>${e(DEV.name)}</h3><p>${e(DEV.role)}</p><p><a href="tel:${DEV.phone}">${DEV.phone}</a> · <a href="mailto:${DEV.email}">${DEV.email}</a></p></div></div>`;
 const home=()=>`<div class="hero fade"><span class="pill">Management 39 · Academic Hub</span><h1>Notes, slides &amp; <span>past questions</span>, all in one place.</h1><p>A student-built archive for Management 39. Pick your semester, open a course, and read PDFs right here.</p><a class="btn" href="#/semesters">Explore Notes →</a></div>
 <section id="sem"><h2>Semesters</h2><p class="sub">Choose a semester to see its courses.</p><div class="grid">${semCards()}</div></section>
 <section><h2>Management 39</h2><p class="sub">Our batch.</p>${gallery()}</section>
+<section><h2>Event Memories</h2><p class="sub">Moments from our events.</p>${evCards()}</section>
 <section><h2>Achievements</h2><p class="sub">What Management 39 has accomplished.</p>${achv()}</section>
 <section><h2>Built by ${e(DEV.name)}</h2><p class="sub">The person behind the site.</p>${about()}</section>`;
 function route(){
@@ -104,6 +123,8 @@ function route(){
  if(!t)h=home();
  else if(t=="semesters")h=`<section class="fade"><h2>Semesters</h2><p class="sub">Choose a semester.</p><div class="grid">${semCards()}</div></section>`;
  else if(t=="m39")h=`<section class="fade"><h2>Management 39</h2><p class="sub">Our batch.</p>${gallery()}</section>`;
+ else if(t=="events"&&!a)h=`<section class="fade"><h2>Event Memories</h2><p class="sub">Choose an event.</p>${evCards()}</section>`;
+ else if(t=="events"){const v=EVENTS.find(x=>x.id==a);h=v?`<section class="fade"><div class="crumb"><a href="#/events">Event Memories</a> / ${e(v.name)}</div><h2>${e(v.name)}</h2><p class="sub">${[v.date,v.place].filter(Boolean).map(e).join(" · ")}</p>${v.photos.length?`<div class="pg">${v.photos.map((p,i)=>`<img src="${p}" data-lb="${p}" alt="${e(v.name)} photo ${i+1}" loading="lazy" decoding="async">`).join("")}</div>`:`<div class="empty">Photos will be added soon.</div>`}</section>`:`<section><div class="empty">Event not found. <a href="#/events" style="color:var(--ac)">Back</a></div></section>`}
  else if(t=="achievements")h=`<section class="fade"><h2>Achievements</h2><p class="sub">What Management 39 has accomplished.</p>${achv()}</section>`;
  else if(t=="about")h=`<section class="fade"><h2>Built by ${e(DEV.name)}</h2><p class="sub">The person behind the site.</p>${about()}</section>`;
  else if(t=="s"&&sem&&!b)h=`<section class="fade"><div class="crumb"><a href="#/semesters">Semesters</a> / ${e(sem.name)}</div><h2>${e(sem.name)}</h2><p class="sub">Select a course.</p><div class="grid">${sem.courses.map(x=>`<a class="card" href="#/s/${sem.id}/${x.id}"><div class="ic">📘</div><h3>${e(x.name)}</h3><small>${e(x.code)}${x.teacher?"<br>"+e(x.teacher):""}</small></a>`).join("")}</div></section>`;
@@ -114,5 +135,8 @@ function route(){
  else h=`<section><div class="empty">Page not found. <a href="#/" style="color:var(--ac)">Go home</a></div></section>`;
  app.innerHTML=h;ln.classList.remove("open");bg.setAttribute("aria-expanded",false);scrollTo(0,0);
  if(t=="semesters"||!t&&0){} }
+const lb=document.createElement("div");lb.className="lb";lb.onclick=()=>lb.classList.remove("on");document.body.appendChild(lb);
+app.addEventListener("click",ev=>{const t=ev.target;if(t.dataset&&t.dataset.lb){lb.innerHTML=`<img src="${t.dataset.lb}" alt="${e(t.alt)}">`;lb.classList.add("on")}});
+addEventListener("keydown",ev=>{if(ev.key=="Escape")lb.classList.remove("on")});
 addEventListener("hashchange",route);route();
 </script></body></html>
