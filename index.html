@@ -59,12 +59,14 @@ section{padding:44px 0}h2{font-size:clamp(24px,5vw,32px);margin-bottom:6px}.sub{
 .pg img:hover{transform:scale(1.03)}
 .lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:50;align-items:center;justify-content:center;padding:12px;cursor:zoom-out}
 .lb.on{display:flex}.lb img{max-width:100%;max-height:100%;border-radius:12px}
+.nr{display:flex;gap:8px;order:3}.links{order:2;margin-left:auto;margin-right:12px}
+.tgl{width:42px;height:42px;border:1px solid var(--bd);border-radius:12px;background:none;color:var(--tx);font-size:18px;cursor:pointer;transition:.2s}.tgl:hover{background:var(--ac2)}
 footer{text-align:center;color:var(--mu);font-size:13px;padding:30px 0 50px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 .fade{animation:f .4s ease both}@keyframes f{from{opacity:0;transform:translateY(8px)}}
 </style></head><body>
 <nav><div class="w"><a class="logo" href="#/">Faiyaaz <span>MGT 39</span></a>
-<button class="burger" id="bg" aria-label="Menu" aria-expanded="false">☰</button>
+<div class="nr"><button class="tgl" id="th" aria-label="Switch theme">🌙</button><button class="burger" id="bg" aria-label="Menu" aria-expanded="false">☰</button></div>
 <div class="links" id="ln"><a href="#/">Home</a><a href="#/semesters">Semesters</a><a href="#/m39">Management 39</a><a href="#/events">Event Memories</a><a href="#/achievements">Achievements</a><a href="#/about">About</a></div></div></nav>
 <main id="app" class="w"></main>
 <footer>© <span id="yr"></span> faiyaazmgt39.com · Made for Management 39</footer>
@@ -106,6 +108,12 @@ const DEV={name:"Abrar Faiyaaz",role:"MGT-39 · Web Developer",phone:"0185226839
 const $=s=>document.querySelector(s),app=$("#app"),e=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 $("#yr").textContent=new Date().getFullYear();
 const bg=$("#bg"),ln=$("#ln");bg.onclick=()=>{const o=ln.classList.toggle("open");bg.setAttribute("aria-expanded",o)};
+const th=$("#th"),root=document.documentElement;
+function applyTheme(m){root.setAttribute("data-theme",m);th.textContent=m=="dark"?"☀️":"🌙";th.setAttribute("aria-label",m=="dark"?"Switch to day mode":"Switch to night mode")}
+let savedTheme=null;try{savedTheme=localStorage.getItem("theme")}catch(x){}
+applyTheme(savedTheme||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));
+th.onclick=()=>{const m=root.getAttribute("data-theme")=="dark"?"light":"dark";applyTheme(m);try{localStorage.setItem("theme",m)}catch(x){}};
+
 const semCards=()=>SEMESTERS.map(s=>`<a class="card" href="#/s/${s.id}"><div class="ic">🎓</div><h3>${e(s.name)}</h3><small>${s.courses.length} courses</small></a>`).join("");
 const gallery=()=>`<div class="gal">${PHOTOS.map(p=>`<figure><img src="${p.src}" alt="${e(p.alt)}" loading="lazy" decoding="async"><figcaption>${e(p.caption)}</figcaption></figure>`).join("")}</div>`;
 const achv=()=>ACHIEVEMENTS.length?`<div class="ach">${ACHIEVEMENTS.map(x=>`<article>${x.photo?`<img src="${e(x.photo)}" alt="${e(x.title)}" loading="lazy" decoding="async">`:""}<div class="b">${x.date?`<span class="pill" style="margin:0">${e(x.date)}</span>`:""}<h3>${e(x.title)}</h3>${x.text?`<p>${e(x.text)}</p>`:""}</div></article>`).join("")}</div>`:`<div class="empty">Our achievements will be added here soon.</div>`;
