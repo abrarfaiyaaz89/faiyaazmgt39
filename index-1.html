@@ -49,13 +49,32 @@ section{padding:44px 0}h2{font-size:clamp(24px,5vw,32px);margin-bottom:6px}.sub{
 .ach article:hover{transform:translateY(-4px);border-color:var(--ac)}
 .ach img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
 .ach .b{padding:18px 20px}.ach h3{font-size:18px;margin:8px 0 6px}.ach p{margin:0;color:var(--mu);font-size:15px}
+.evc{display:block;background:var(--card);border:1px solid var(--bd);border-radius:22px;overflow:hidden;box-shadow:var(--sh);transition:.25s}
+.evc:hover{transform:translateY(-4px);border-color:var(--ac)}
+.evc .cv{aspect-ratio:16/10;background:linear-gradient(135deg,var(--ac2),var(--bg));display:grid;place-items:center;font-size:34px}
+.evc img{display:block;width:100%;height:100%;object-fit:cover}
+.evc .cv{overflow:hidden}.evc .b{padding:16px 20px}.evc h3{font-size:18px}.evc small{color:var(--mu)}
+.pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.pg img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:16px;cursor:zoom-in;transition:.25s;border:1px solid var(--bd)}
+.pg img:hover{transform:scale(1.03)}
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:50;align-items:center;justify-content:center;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.lb.on{display:flex}.lb img{max-width:100%;max-height:86%;border-radius:10px;touch-action:pan-y;-webkit-user-drag:none}
+.lb button{position:absolute;background:rgba(255,255,255,.14);color:#fff;border:0;border-radius:99px;width:44px;height:44px;font-size:24px;cursor:pointer;display:grid;place-items:center}
+.lb button:hover{background:rgba(255,255,255,.28)}
+.lb .lx{top:calc(14px + env(safe-area-inset-top,0px));right:14px;font-size:18px}.lb .l{left:12px;top:50%}.lb .r{right:12px;top:50%}
+.lb .lc{position:absolute;bottom:calc(16px + env(safe-area-inset-bottom,0px));left:0;right:0;text-align:center;color:#ddd;font-size:14px}
+.lb.single .ln,.lb.single .lc{display:none}
+@media(max-width:640px){.lb .ln{display:none}}
+[data-lb]{cursor:zoom-in}
+.nr{display:flex;gap:8px;order:3}.links{order:2;margin-left:auto;margin-right:12px}
+.tgl{width:42px;height:42px;border:1px solid var(--bd);border-radius:12px;background:none;color:var(--tx);font-size:18px;cursor:pointer;transition:.2s}.tgl:hover{background:var(--ac2)}
 footer{text-align:center;color:var(--mu);font-size:13px;padding:30px 0 50px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 .fade{animation:f .4s ease both}@keyframes f{from{opacity:0;transform:translateY(8px)}}
 </style></head><body>
 <nav><div class="w"><a class="logo" href="#/">Faiyaaz <span>MGT 39</span></a>
-<button class="burger" id="bg" aria-label="Menu" aria-expanded="false">☰</button>
-<div class="links" id="ln"><a href="#/">Home</a><a href="#/semesters">Semesters</a><a href="#/m39">Management 39</a><a href="#/achievements">Achievements</a><a href="#/about">About</a></div></div></nav>
+<div class="nr"><button class="tgl" id="th" aria-label="Switch theme">🌙</button><button class="burger" id="bg" aria-label="Menu" aria-expanded="false">☰</button></div>
+<div class="links" id="ln"><a href="#/">Home</a><a href="#/semesters">Semesters</a><a href="#/m39">Management 39</a><a href="#/events">Event Memories</a><a href="#/achievements">Achievements</a><a href="#/about">About</a></div></div></nav>
 <main id="app" class="w"></main>
 <footer>© <span id="yr"></span> faiyaazmgt39.com · Made for Management 39</footer>
 <script>
@@ -72,23 +91,47 @@ const SEMESTERS=[
   {id:"math",name:"Basic Mathematics",code:"BCC-103",teacher:"Prof. Dr. Anupam Kumar Das",files:{notes:[],slides:[],books:[],syllabus:[],questions:[]}},
   {id:"pom",name:"Principles of Management",code:"BCC-104",teacher:"Prof. Dr. Shameema Ferdausy",files:{notes:[],slides:[],books:[],syllabus:[],questions:[]}},
   {id:"comm",name:"Essentials in Communications",code:"BCC-105",teacher:"Prof. Sharmeen Ahmed",files:{notes:[],slides:[],books:[],syllabus:[],questions:[]}}
+ ]},
+ {id:"2",name:"2nd Semester",courses:[
+  {id:"marketing",name:"Principles of Marketing",code:"BCC-106",teacher:"Prof. Abu Mohammad Atiqur Rahman",files:{notes:[],slides:[],books:[],syllabus:[],questions:[]}},
+  {id:"macro",name:"Macroeconomics",code:"GED-107",teacher:"Prof. Dr. Anupam Kumar Das",files:{notes:[],slides:[],books:[],syllabus:[],questions:[]}},
+  {id:"stat",name:"Basic Statistics",code:"GED-108",teacher:"Prof. Dr. Mohammad Khaled Afzal",files:{notes:[],slides:[],books:[],syllabus:[],questions:[]}},
+  {id:"law",name:"Business Law",code:"BCC-109",teacher:"Prof. Dr. Md. Mizanur Rahman Chowdhury",files:{notes:[],slides:[],books:[{title:"Commercial Law and Industrial Law \u2014 Part 1 (pages 1\u2013561)",url:"law-part1.pdf",size:"PDF"},{title:"Commercial Law and Industrial Law \u2014 Part 2 (pages 562\u20131122)",url:"law-part2.pdf",size:"PDF"}],syllabus:[],questions:[]}},
+  {id:"ict",name:"Information and Communication Technology",code:"GED-110",teacher:"Mrs. Chowdhury Ummeh Kulsum",files:{notes:[],slides:[],books:[],syllabus:[],questions:[]}}
  ]}
 ];
 const PHOTOS=[{src:"group.jpg",alt:"Management 39 batch group photo on campus",caption:"Management 39 — our batch"}];
-/* Add achievements here: {title:"...",date:"Oct 2026",text:"short description",photo:"optional-photo.jpg"} (comma between items) */
-const ACHIEVEMENTS=[];
+/* Add achievements here: {title:"...",date:"Oct 2026",text:"short description",photos:["a.jpg","b.jpg"]} (comma between items) */
+const ACHIEVEMENTS=[
+ {title:"61’s Kick Off",date:"18 Jul 2026",text:"Chasing Glory, Together — Management 39 on the football field.",photos:["kickoff-1.jpg","kickoff-2.jpg","kickoff-3.jpg","kickoff-4.jpg","kickoff-5.jpg","kickoff-6.jpg"]}
+];
+/* Event Memories: add photos by listing file names in photos:["a.jpg","b.jpg"]; add a new event as a new {..} line */
+const EVENTS=[
+ {id:"asharer-ashor",name:"আষাঢ়ের আসর",date:"",place:"",photos:[]},
+ {id:"freshers-odyssey",name:"Fresher’s Odyssey",date:"13 Aug 2026",place:"FBA Auditorium · presented by Management 38",photos:["fresher-01.jpg","fresher-02.jpg","fresher-03.jpg","fresher-04.jpg","fresher-05.jpg","fresher-06.jpg","fresher-07.jpg","fresher-08.jpg","fresher-09.jpg","fresher-10.jpg","fresher-11.jpg","fresher-12.jpg"]},
+ {id:"hall-fest-2026",name:"Hall Fest-2026",date:"10 Sep 2026",place:"Shahjalal Hall Dining · Department of Management",photos:["hallfest-01.jpg","hallfest-02.jpg","hallfest-03.jpg","hallfest-04.jpg","hallfest-05.jpg","hallfest-06.jpg"]}
+];
+
 const DEV={name:"Abrar Faiyaaz",role:"MGT-39 · Web Developer",phone:"01852268399",email:"abrarfaiyaaz89@gmail.com",photo:"abrar.jpg"};
 /* ============ UI ============ */
 const $=s=>document.querySelector(s),app=$("#app"),e=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 $("#yr").textContent=new Date().getFullYear();
 const bg=$("#bg"),ln=$("#ln");bg.onclick=()=>{const o=ln.classList.toggle("open");bg.setAttribute("aria-expanded",o)};
+const th=$("#th"),root=document.documentElement;
+function applyTheme(m){root.setAttribute("data-theme",m);th.textContent=m=="dark"?"☀️":"🌙";th.setAttribute("aria-label",m=="dark"?"Switch to day mode":"Switch to night mode")}
+let savedTheme=null;try{savedTheme=localStorage.getItem("theme")}catch(x){}
+applyTheme(savedTheme||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"));
+th.onclick=()=>{const m=root.getAttribute("data-theme")=="dark"?"light":"dark";applyTheme(m);try{localStorage.setItem("theme",m)}catch(x){}};
+
 const semCards=()=>SEMESTERS.map(s=>`<a class="card" href="#/s/${s.id}"><div class="ic">🎓</div><h3>${e(s.name)}</h3><small>${s.courses.length} courses</small></a>`).join("");
-const gallery=()=>`<div class="gal">${PHOTOS.map(p=>`<figure><img src="${p.src}" alt="${e(p.alt)}" loading="lazy" decoding="async"><figcaption>${e(p.caption)}</figcaption></figure>`).join("")}</div>`;
-const achv=()=>ACHIEVEMENTS.length?`<div class="ach">${ACHIEVEMENTS.map(x=>`<article>${x.photo?`<img src="${e(x.photo)}" alt="${e(x.title)}" loading="lazy" decoding="async">`:""}<div class="b">${x.date?`<span class="pill" style="margin:0">${e(x.date)}</span>`:""}<h3>${e(x.title)}</h3>${x.text?`<p>${e(x.text)}</p>`:""}</div></article>`).join("")}</div>`:`<div class="empty">Our achievements will be added here soon.</div>`;
+const gallery=()=>`<div class="gal" data-gal>${PHOTOS.map(p=>`<figure><img src="${p.src}" data-lb="${p.src}" alt="${e(p.alt)}" loading="lazy" decoding="async"><figcaption>${e(p.caption)}</figcaption></figure>`).join("")}</div>`;
+const achv=()=>ACHIEVEMENTS.length?`<div class="ach">${ACHIEVEMENTS.map(x=>{const ph=x.photos||(x.photo?[x.photo]:[]);return `<article data-gal>${ph.map((p,i)=>`<img ${i?"hidden ":""}src="${e(p)}" data-lb="${e(p)}" alt="${e(x.title)} photo ${i+1}" loading="lazy" decoding="async">`).join("")}<div class="b">${x.date?`<span class="pill" style="margin:0">${e(x.date)}</span> `:""}${ph.length>1?`<span class="pill" style="margin:0">📷 ${ph.length} photos</span>`:""}<h3>${e(x.title)}</h3>${x.text?`<p>${e(x.text)}</p>`:""}</div></article>`}).join("")}</div>`:`<div class="empty">Our achievements will be added here soon.</div>`;
+const evCards=()=>`<div class="ach">${EVENTS.map(v=>`<a class="evc" href="#/events/${v.id}"><div class="cv">${v.photos.length?`<img src="${v.photos[0]}" alt="${e(v.name)}" loading="lazy" decoding="async">`:"📸"}</div><div class="b"><h3>${e(v.name)}</h3><small>${v.photos.length?v.photos.length+" photos":"Photos coming soon"}${v.date?" · "+e(v.date):""}</small></div></a>`).join("")}</div>`;
 const about=()=>`<div class="dev"><img src="${DEV.photo}" alt="Portrait of ${e(DEV.name)}, web developer" loading="lazy"><div><small style="color:var(--mu)">Built by</small><h3>${e(DEV.name)}</h3><p>${e(DEV.role)}</p><p><a href="tel:${DEV.phone}">${DEV.phone}</a> · <a href="mailto:${DEV.email}">${DEV.email}</a></p></div></div>`;
 const home=()=>`<div class="hero fade"><span class="pill">Management 39 · Academic Hub</span><h1>Notes, slides &amp; <span>past questions</span>, all in one place.</h1><p>A student-built archive for Management 39. Pick your semester, open a course, and read PDFs right here.</p><a class="btn" href="#/semesters">Explore Notes →</a></div>
 <section id="sem"><h2>Semesters</h2><p class="sub">Choose a semester to see its courses.</p><div class="grid">${semCards()}</div></section>
 <section><h2>Management 39</h2><p class="sub">Our batch.</p>${gallery()}</section>
+<section><h2>Event Memories</h2><p class="sub">Moments from our events.</p>${evCards()}</section>
 <section><h2>Achievements</h2><p class="sub">What Management 39 has accomplished.</p>${achv()}</section>
 <section><h2>Built by ${e(DEV.name)}</h2><p class="sub">The person behind the site.</p>${about()}</section>`;
 function route(){
@@ -97,6 +140,8 @@ function route(){
  if(!t)h=home();
  else if(t=="semesters")h=`<section class="fade"><h2>Semesters</h2><p class="sub">Choose a semester.</p><div class="grid">${semCards()}</div></section>`;
  else if(t=="m39")h=`<section class="fade"><h2>Management 39</h2><p class="sub">Our batch.</p>${gallery()}</section>`;
+ else if(t=="events"&&!a)h=`<section class="fade"><h2>Event Memories</h2><p class="sub">Choose an event.</p>${evCards()}</section>`;
+ else if(t=="events"){const v=EVENTS.find(x=>x.id==a);h=v?`<section class="fade"><div class="crumb"><a href="#/events">Event Memories</a> / ${e(v.name)}</div><h2>${e(v.name)}</h2><p class="sub">${[v.date,v.place].filter(Boolean).map(e).join(" · ")}</p>${v.photos.length?`<div class="pg" data-gal>${v.photos.map((p,i)=>`<img src="${p}" data-lb="${p}" alt="${e(v.name)} photo ${i+1}" loading="lazy" decoding="async">`).join("")}</div>`:`<div class="empty">Photos will be added soon.</div>`}</section>`:`<section><div class="empty">Event not found. <a href="#/events" style="color:var(--ac)">Back</a></div></section>`}
  else if(t=="achievements")h=`<section class="fade"><h2>Achievements</h2><p class="sub">What Management 39 has accomplished.</p>${achv()}</section>`;
  else if(t=="about")h=`<section class="fade"><h2>Built by ${e(DEV.name)}</h2><p class="sub">The person behind the site.</p>${about()}</section>`;
  else if(t=="s"&&sem&&!b)h=`<section class="fade"><div class="crumb"><a href="#/semesters">Semesters</a> / ${e(sem.name)}</div><h2>${e(sem.name)}</h2><p class="sub">Select a course.</p><div class="grid">${sem.courses.map(x=>`<a class="card" href="#/s/${sem.id}/${x.id}"><div class="ic">📘</div><h3>${e(x.name)}</h3><small>${e(x.code)}${x.teacher?"<br>"+e(x.teacher):""}</small></a>`).join("")}</div></section>`;
@@ -107,5 +152,19 @@ function route(){
  else h=`<section><div class="empty">Page not found. <a href="#/" style="color:var(--ac)">Go home</a></div></section>`;
  app.innerHTML=h;ln.classList.remove("open");bg.setAttribute("aria-expanded",false);scrollTo(0,0);
  if(t=="semesters"||!t&&0){} }
+const lb=document.createElement("div");lb.className="lb";lb.setAttribute("role","dialog");lb.setAttribute("aria-label","Photo viewer");
+lb.innerHTML='<button class="lx" aria-label="Close">\u2715</button><button class="ln l" aria-label="Previous photo">\u2039</button><img alt=""><button class="ln r" aria-label="Next photo">\u203a</button><div class="lc"></div>';
+document.body.appendChild(lb);
+const im=lb.querySelector("img"),lc=lb.querySelector(".lc");let list=[],idx=0,x0=0,y0=0,dx=0,drag=false;
+function show(i,dir){idx=(i+list.length)%list.length;im.style.transition="none";im.style.transform="translateX("+dir*40+"px)";im.style.opacity=0;im.src=list[idx].src;im.alt=list[idx].alt;lc.textContent=(idx+1)+" / "+list.length;
+ requestAnimationFrame(()=>requestAnimationFrame(()=>{im.style.transition="transform .25s,opacity .25s";im.style.transform="";im.style.opacity=1}))}
+function closeLb(){lb.classList.remove("on");document.body.style.overflow="";im.removeAttribute("src")}
+app.addEventListener("click",ev=>{const t=ev.target.closest("[data-lb]");if(!t)return;const g=t.closest("[data-gal]"),nodes=g?[...g.querySelectorAll("[data-lb]")]:[t];
+ list=nodes.map(n=>({src:n.dataset.lb,alt:n.alt||""}));lb.classList.toggle("single",list.length<2);lb.classList.add("on");document.body.style.overflow="hidden";show(nodes.indexOf(t),0)});
+lb.addEventListener("click",ev=>{if(ev.target==lb||ev.target.classList.contains("lx"))closeLb();else if(ev.target.classList.contains("l"))show(idx-1,-1);else if(ev.target.classList.contains("r"))show(idx+1,1)});
+lb.addEventListener("touchstart",ev=>{if(list.length<2||ev.touches.length>1)return;x0=ev.touches[0].clientX;y0=ev.touches[0].clientY;dx=0;drag=true},{passive:true});
+lb.addEventListener("touchmove",ev=>{if(!drag)return;dx=ev.touches[0].clientX-x0;if(Math.abs(dx)>Math.abs(ev.touches[0].clientY-y0)){im.style.transition="none";im.style.transform="translateX("+dx+"px)"}},{passive:true});
+lb.addEventListener("touchend",()=>{if(!drag)return;drag=false;if(Math.abs(dx)>60)show(idx+(dx<0?1:-1),dx<0?1:-1);else{im.style.transition="transform .2s";im.style.transform=""}});
+addEventListener("keydown",ev=>{if(!lb.classList.contains("on"))return;if(ev.key=="Escape")closeLb();else if(ev.key=="ArrowLeft"&&list.length>1)show(idx-1,-1);else if(ev.key=="ArrowRight"&&list.length>1)show(idx+1,1)});
 addEventListener("hashchange",route);route();
 </script></body></html>
