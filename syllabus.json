@@ -1,0 +1,280 @@
+{
+  "program": "BBA, Department of Management, University of Chittagong",
+  "semesters": [
+    {
+      "semester": 1,
+      "courses": [
+        {
+          "code": "BCC 101",
+          "title": "Introduction to Business",
+          "marks": 100,
+          "credit": 3,
+          "breakdown": { "written": 75, "internal": 20, "viva": 5 },
+          "objective": "The course has been designed to impart fundamental knowledge on the introductory issues of business. It intends to familiarize the students about the types, ownership, functions and the combination of business. It also entails business facilities, opportunities, and practices of business at home and in abroad.",
+          "contents": [
+            { "title": "Chapter 01: Introduction", "topics": "Meaning; Economics as the foundation of Business; Importance, Principles, Functions and Objectives of Business; Business Process, Environment of Business; Present Scenario of Business in Bangladesh; Challenges and Opportunities of Doing Business in Bangladesh; Ways to overcome the challenges." },
+            { "title": "Chapter 02: Start up a Business", "topics": "Preliminary steps; The roadmap; Business plan; Procedures for starting a business; Startup cost of business; Acts governing business in Bangladesh." },
+            { "title": "Chapter 03: Business Ownerships, Functional areas and Business Documents", "topics": "Meaning, Characteristics, and Forms of Business Ownership; Advantages and Disadvantages of various forms of business ownership; Factors influencing the selection of forms of business; Functional areas of various forms of business; Relevant business documents." },
+            { "title": "Chapter 04: Business Combination", "topics": "Concept, types and forms of business combination, Causes, Advantages, Disadvantages of different types of business combination; Factors influencing business combination." },
+            { "title": "Chapter 05: International Business", "topics": "Globalization; Meaning and Importance of International Business; Why firms conduct international business; Approaches to International Business; Barriers to International Business, Adapting to Foreign Market." },
+            { "title": "Chapter 06: Trade Practices and Facilitating Agencies in Bangladesh", "topics": "Introduction to Trade Policy, Objectives of Trade Policy, Trade Policy Management in Bangladesh, Formulation and Administration of Trade Policy, Industrial Policy, Objectives of Industrial Policy, Trade agreement and arrangement, Competition Policy, Facilitating agencies of Bangladesh." },
+            { "title": "Chapter 07: Contemporary Issues of Business", "topics": "Introduction, Communicating in contemporary business environments, Social Business, Green Business, E-business, Virtual Business/organization, Boundaryless organization, Corporate governance, Business ethics and CSR, Ethical decision-making, Public-Private Partnership (PPP), Economic analyses of contemporary issues in Bangladesh, Labor issues in Bangladesh's RMG sector, Contemporary Business Ideas." }
+          ],
+          "basicTexts": [
+            "Skinner and Ivancevich, Business in 21st Century",
+            "Hoque, M. Ziaul (2016), Introduction to Business, 1st edition, Zohair Publications",
+            "Mahamud, MM and Selimuddin, Doing Business in Bangladesh, Padma Prokashoni"
+          ],
+          "referenceBooks": [
+            "O.C. Ferrell, G.A. Hirt, L. Ferrell, Business: A Changing World, McGraw-Hill, New Delhi (Current Edition)",
+            "C.E. Boone & D.L. Kurtz, Contemporary Business, Dryden Press (Current Edition)",
+            "Abul Kashem Haider, Business Administration: Import-Export Manual"
+          ]
+        },
+        {
+          "code": "BCC 102",
+          "title": "Basic Accounting",
+          "marks": 100,
+          "credit": 3,
+          "breakdown": { "written": 75, "internal": 20, "viva": 5 },
+          "objective": "To develop the students' understanding of the whole accounting process and application of the conceptual framework, in order to create their abilities to apply such concepts and principles in preparation and presentation of financial statements in accordance with the identified financial reporting framework.",
+          "contents": [
+            { "title": "1. Introduction to Financial Accounting: Background of Accounting Development", "topics": "Definition; The purpose and nature of accounting information; The work of accountants; Branches of accounting; The need for accounting concepts and principles; Professional associations; Generally Accepted Accounting Principles (GAAP); Capital and revenue receipts & expenditures; Introduction to International Accounting Standards (IASs) and International Financial Reporting Standards (IFRS) issued by the IASB." },
+            { "title": "2. Recording Process of Economic Events", "topics": "Rules of accounting records; Accounts classification; Debit and Credit; The principles of double entry; Accounting equation; Journal; Ledger; Coding and Chart of Accounts; Posting in the ledger accounts; Trial Balance (purpose, limitations, locating errors); Adjusting entries; Rectification of errors before and after preparation of Trial Balance." },
+            { "title": "3. Completing the Accounting Cycle and Worksheet", "topics": "Use of work sheet; Preparation of work sheet; Closing entries for revenue and expenses accounts; Post-closing trial balance; Opening entries; Reversing entries." },
+            { "title": "4. Accounting for Merchandising Operations and Accounting System", "topics": "Merchandising operations; Recording purchase and sales of merchandise under perpetual & periodic inventory system; Completing the accounting cycle; The voucher system (voucher forms, voucher register, vouchers payable, paid voucher files); Operating general ledgers and subsidiary ledgers (control accounts, subsidiary ledger accounts); Special journals and their advantages (Cash Receipts Journal, Sales Journal, Purchase Journal, Cash Payments Journal, General Journal)." },
+            { "title": "5. Preparation and Presentation of Financial Statements", "topics": "Preparation of financial statements; Multiple-step income statement; Single-step income statement; Classified balance sheet; Horizontal and vertical arrangement of financial statements; Presentation as per IAS 1: Presentation of Financial Statements." },
+            { "title": "6. Cash Flow Statement, Value Added Statement and other Supplementary Statements", "topics": "(a) Cash Flow Statement: Definition, basic objectives, forms, benefits, purposes and limitations; Requirements of the Companies Act, 1994 and the Securities and Exchange Rules, 1987; IAS 7: Cash Flow Statements. (b) Value Added Statement and Economic Value Added: Definition, objectives, importance of form, different concepts of value additives, preparation of value added statement and EVA statement. (c) Other Supplementary Statements: Statement of accounting policies, principles and assumptions; Fixed assets schedule and other supplementary statements and disclosures; IAS 8: Accounting Policies, Changes in Accounting Estimates and Errors." },
+            { "title": "7. An Overview of Automated Accounting System", "topics": "Concept and importance of automated accounting system; Automated vs. manual accounting system; Impacts of automated accounting system in business enterprise; Conversion of manual accounting system to automated accounting system; Automated accounting system in Enterprise Resource Planning." }
+          ],
+          "basicTexts": [
+            "Weygandt, Kieso and Kimmel, Accounting Principles (Latest edition)"
+          ],
+          "referenceBooks": [
+            "John J. Wild and Ken W. Shaw, Fundamental Accounting Principles, McGraw Hill Education",
+            "M.C. Shukla, T.S. Grewal & S.C. Gupta, Advanced Accountancy",
+            "P.E. Fess & C.R. Niswonger, Accounting Principles",
+            "Basu and Das, Principles & Practices of Accountancy"
+          ]
+        },
+        {
+          "code": "BCC 103",
+          "title": "Business Mathematics",
+          "marks": 100,
+          "credit": 3,
+          "breakdown": { "written": 75, "internal": 20, "viva": 5 },
+          "objective": "The main objective of this course is to build up the mathematical knowledge of the students related to business decision making. The course will provide an understanding of basic mathematical concepts and their application in the field of business. After completing this course the students will be able to take concrete decisions about problems they face in day to day business operations.",
+          "contents": [
+            { "title": "1. Introduction to Business Mathematics", "topics": "Importance, scopes, objectives and limitations of mathematics in business studies." },
+            { "title": "2. Number System, Indices, Surds and Logarithm", "topics": "Origin and concept of number; Classification and properties of real & imaginary numbers; Odd number; Prime and composite numbers; Indices, laws and uses of indices; Surds; Logarithm, properties and types of logarithm." },
+            { "title": "3. Functions, Equations and Inequalities", "topics": "Definitions of variable, constant, parameter and function; Domain and range; Types of mathematical and business functions; Graphical representation of different types of functions; Definition and types of equations; Solution methods of linear and non-linear equations; Definition, properties and solution of inequalities; Business application." },
+            { "title": "4. Co-ordinate Geometry", "topics": "Abscissa and ordinate of a point; Rectangular co-ordinates; Locus of a moving point and its equations; Distance between two points; Various forms of equation of a straight line; Intersection and angle between two lines; Business application." },
+            { "title": "5. Set Theory", "topics": "Concept, definition, characteristics of set; Methods of description of set; Types of set; Basic set operations; Ordered pair; Venn diagram; Cartesian products; Business application." },
+            { "title": "6. Permutations, Combinations and Progression", "topics": "Fundamental rules of counting; Permutations; Factorial notation; Permutation of 'n' different things; Circular permutations; Permutations of things not all different; Restricted permutations; Combination; Complementary theorems; Restricted combinations; Combinations of things not all different; Arithmetic progression, sum of series, arithmetic mean; Geometric progression, sum of series, geometric mean; Business application." },
+            { "title": "7. Matrix Algebra", "topics": "Definition of a matrix; Types of matrices; Matrix operations; Definition, types, properties and expansion of a determinant; Input-output analysis; Structure of an input-output model; Open and closed model; Hawkins-Simon conditions; Determination of technological matrix and final demand; Business and economic applications." },
+            { "title": "8. Differential Calculus", "topics": "Introduction; Rules of differentiation for single variable; Higher order derivatives; Concept of optimization; Optimization methods for single variable; Partial and total derivatives; Business application." },
+            { "title": "9. Integral Calculus", "topics": "The relationship between integral and differential calculus; Rules of integral calculus; Fundamental theorem of integral calculus; Definite integral; Application of integral calculus; Determination of consumers' surplus and producers' surplus; Business application." }
+          ],
+          "basicTexts": [
+            "Ann J. Hughes, Applied Mathematics: For Business, Economics and the Social Science",
+            "R.L. Childress, Mathematics for Managerial Decision, Second Edition",
+            "Chiang, A.C., Fundamental Methods of Mathematical Economics, McGraw Hill Book Company, London"
+          ],
+          "referenceBooks": [
+            "D.C. Sancheti and V.K. Kapoor, Business Mathematics, Current Edition",
+            "C.A. Bush & Y.J.E. Young, Foundation of Mathematics with Application to Social & Management Science, Second Edition",
+            "Dowling, E.T., Introduction to Mathematical Economics, McGraw Hill Book Company, London",
+            "M.A. Taher, Business Mathematics, Current Edition"
+          ]
+        },
+        {
+          "code": "BCC 104",
+          "title": "Principles of Management",
+          "marks": 100,
+          "credit": 3,
+          "breakdown": { "written": 75, "internal": 20, "viva": 5 },
+          "objective": "The objective of the course is to help the students gain understanding of the theory of management and organization, and the practice of management in contemporary organizations from a conceptual, analytical and pragmatic perspective. The course will also help the students to develop their own framework for analyzing and understanding management as well as exploring and developing their personal philosophy of management. It also intends to highlight contemporary management issues.",
+          "contents": [
+            { "title": "Chapter 01 (1): Managers and You in the Workplace", "topics": "Tell who managers are and where they work; Why are managers important; Management versus managers; Managerial challenges today and into the future; Why study management; Employability skills." },
+            { "title": "Management History Module", "topics": "Early management; Classical approach; Behavioral approach; Quantitative approach; Contemporary approaches." },
+            { "title": "Chapter 02 (2): Making Decisions", "topics": "The decision-making process; Approaches to decision making; Types of decisions; Decision-making styles; Decision-making biases and errors; Cutting-edge approaches for improving decision making." },
+            { "title": "Chapter 03 (6): Managing Social Responsibility and Ethics", "topics": "What is social responsibility? Green management and sustainability; Managers and ethical behavior; Encouraging ethical behavior; Current issues in social responsibility and ethics." },
+            { "title": "Chapter 04 (8): Foundations of Planning", "topics": "The what and why of planning; Types of plans; Contingency factors in planning; Objectives: the foundation of planning; Contemporary issues in planning." },
+            { "title": "Chapter 05 (11): Designing Organizational Structure", "topics": "Six elements of organizational design; Mechanistic and organic structures; Contingency factors affecting structural choice; Traditional organizational design options; Organizing for flexibility in the twenty-first century." },
+            { "title": "Chapter 06 (16): Motivating Employees", "topics": "What is motivation; Early theories of motivation; Contemporary theories of motivation; Current issues in motivation." },
+            { "title": "Chapter 07 (17): Being an Effective Leader", "topics": "Who are leaders, and what is leadership? Early leadership theories; Contingency theories of leadership; Contemporary views of leadership; Integrating theories of leadership; Leadership issues in the twenty-first century." },
+            { "title": "Chapter 08 (18): Monitoring and Controlling", "topics": "What is controlling, and why is it important? The control process; Controlling for organizational and employee performance; Tools for measuring organizational performance; Contemporary issues in control." }
+          ],
+          "basicTexts": [
+            "Stephen P. Robbins and Mary Coulter, Management, Pearson Education Limited, 2021, 15th Edition (Global)"
+          ],
+          "referenceBooks": [
+            "Ricky W. Griffin, Fundamentals of Management, Cengage Learning Inc., 2022, 10th Edition",
+            "Heinz Weihrich and Harold Koontz, Management: A Global Perspective, Tata McGraw Hill, Latest Edition",
+            "Robert Kreitner, Management Theory and Applications, Cengage Learning, India, Latest Edition"
+          ]
+        },
+        {
+          "code": "BCC 105",
+          "title": "Business Communication",
+          "marks": 100,
+          "credit": 3,
+          "breakdown": { "written": 75, "internal": 20, "viva": 5 },
+          "objective": "After the completion of this course, learners would be able to use effective communication techniques to manage business professionally. Learners will get acquainted with different mechanisms of communication and develop mastery over a good stock of business vocabularies and their usage in different business contexts. They will learn the pragmatics of language as well.",
+          "contents": [
+            { "title": "Chapter 1: Basic Structure of English Language", "topics": "1.1 Sentence elements; 1.2 Sentence structure; 1.3 Classification." },
+            { "title": "Chapter 2: Common Mistakes in English", "topics": "" },
+            { "title": "Chapter 3: Foundation of Business Communication", "topics": "3.1 Definition of communication; 3.2 Communication process; 3.3 Communication models; 3.4 Communication challenges and barriers; 3.5 Four essential skills for business communication: Reading, Listening, Speaking, Writing (five effective techniques)." },
+            { "title": "Chapter 4: Classification of Business Communication", "topics": "4.1 Verbal communication (oral and written); 4.2 Nonverbal communication (gesture and posture, etiquettes and manners); 4.3 Formal communication (vertical and horizontal); 4.4 Informal communication (grapevine)." },
+            { "title": "Chapter 5: Writing Business Letters", "topics": "5.1 Types of business letters; 5.2 Positive letters; 5.3 Negative letters; 5.4 Persuasive letters." },
+            { "title": "Chapter 6: Writing Memos, Minutes and Reports", "topics": "6.1 Writing memos; 6.2 Writing minutes; 6.3 Writing reports (tools and techniques); 6.4 Referencing styles." },
+            { "title": "Chapter 7: Job Search Communication", "topics": "7.1 CV writing; 7.2 Job interview; 7.3 Creating powerful image." }
+          ],
+          "basicTexts": [
+            "C.L. Bovee and J.V. Thill, Business Communication Today, Pearson",
+            "T.J. Fitikides, Common Mistakes in English, Longman"
+          ],
+          "referenceBooks": [
+            "Shirley Taylor, Model Business Letters, E-mails & Other Business Documents, Pearson"
+          ]
+        }
+      ]
+    },
+    {
+      "semester": 2,
+      "courses": [
+        {
+          "code": "BCC 106",
+          "title": "Principles of Marketing",
+          "marks": 100,
+          "credit": 3,
+          "breakdown": { "written": 75, "internal": 20, "viva": 5 },
+          "objective": "To provide a broad introduction to marketing concepts, help understand the factors that influence marketing decisions, and focus attention on the vital role of marketing in today's global economy. Specific objectives: (1) understand how organizations identify customers and their wants/needs; (2) comprehend marketing decisions based on the combination of product, price, promotion and distribution elements, and the marketing mix in the marketing planning process; (3) understand how marketing is carried out to meet the requirements of domestic and international buyers, both households and businesses, within the bounds of ethics and the legal environment; (4) understand fundamental frameworks and methods and develop analytical skills for solving marketing problems; (5) provide a firm foundation in marketing theory and lexicon; (6) relate the impact of marketing and its integration with one's own major or field of interest.",
+          "contents": [
+            { "title": "1. Introduction to Marketing", "topics": "Definition of marketing; Understanding the marketplace and customer needs; Designing a customer-driven marketing strategy; Marketing plan and program; Managing customer relationships; Capturing value from customers." },
+            { "title": "2. Company and Marketing Strategy", "topics": "Company-wide strategic planning; Partnering to build customer relationships; Marketing strategy and marketing mix; Managing the effort and marketing return on investment." },
+            { "title": "3. Analyzing the Marketing Environment", "topics": "The microenvironment of the company; The macro-environment of the company; Responding to the marketing environment." },
+            { "title": "4. Customer Insights through Marketing Information and Research", "topics": "Marketing information and customer insights; Assessing information needs and developing data; Conducting marketing research; Analyzing and using marketing information." },
+            { "title": "5. Customer Value-Driven Marketing Strategy", "topics": "Market segmentation: segmenting consumer, business and international markets, requirements for effective segmentation. Market targeting: evaluating market segments, selecting target market segments. Differentiation and positioning: positioning maps, choosing a differentiation and positioning strategy, communicating and delivering the chosen position." },
+            { "title": "6. Product, Services, and Brands", "topics": "Levels of product and services; Classification of product and services; Product and service decisions; Service marketing; Branding strategy." },
+            { "title": "7. Pricing", "topics": "Factors influencing setting prices; Customer perception of value; Value-based pricing; Cost-based pricing; Other internal and external considerations affecting price decisions." },
+            { "title": "8. Marketing Channels", "topics": "Supply and the value delivery network; The nature and importance of marketing channels; Channel behavior and organization: Vertical Marketing Systems, Horizontal Marketing Systems, Multichannel Marketing Systems." },
+            { "title": "9. Integrated Marketing Communication", "topics": "The marketing communication mix; Developing effective marketing communication; Setting the total promotion budget and mix." },
+            { "title": "10. Marketing in Digital Age and Ethical Backdrop", "topics": "Rapid growth of direct and digital marketing; Forms of direct and digital marketing; The internet and the digital age: online marketing, social media marketing, mobile marketing; Sustainable marketing; Social responsibility; Social criticisms of marketing; Marketing ethics." }
+          ],
+          "basicTexts": [
+            "Philip Kotler and Gary Armstrong, Principles of Marketing (17th Edition)"
+          ],
+          "referenceBooks": []
+        },
+        {
+          "code": "BCC 107",
+          "title": "Microeconomics",
+          "marks": 100,
+          "credit": 3,
+          "breakdown": { "written": 75, "internal": 20, "viva": 5 },
+          "objective": "This course begins with an introduction to supply and demand and the basic forces that determine an equilibrium in a market economy. Next, it introduces a framework for learning about consumer behavior and analyzing consumer decisions. We then turn our attention to firms and their decisions about optimal production, and the impact of different market structures on firms' behavior. The course finally discusses the equilibrium in factor markets. By the end of the course, you will be able to understand introductory microeconomic theory, solve basic microeconomic problems, and use these techniques to think about a number of policy questions relevant to the operation of the real economy.",
+          "contents": [
+            { "title": "1. Introduction", "topics": "Definition of economics; Two big economic questions; The economic way of thinking; Economics as social science and policy tools; Production possibilities and opportunity cost; Using resources efficiently; Thinking like an economist; Mankiw's Ten Principles of Economics; Microeconomics vs macroeconomics." },
+            { "title": "2. Demand and Supply", "topics": "Markets and competition; The demand function and the demand curve; Individual demand vs market demand; Determinants of demand; Shift vs movement along the demand curve; The supply function and the supply curve; Determinants of supply; Shifts vs movement along the supply curve; Equilibrium; Changes in equilibrium." },
+            { "title": "3. Elasticity of Demand and Supply", "topics": "Meaning of elasticity; Types of elasticity: point-price elasticity of demand, arc price elasticity of demand; Relationship between price elasticity and total revenue; Relationship between marginal revenue and price elasticity; Income elasticity of demand; Cross-price elasticity of demand (point and arc); Elasticity of supply." },
+            { "title": "4. Consumer Behavior", "topics": "Utility and utility function; Total utility and marginal utility; Diminishing marginal utility; Consumer preferences and its properties; Representing preferences with indifference curve; Properties of indifference curves; Consumers' optimal choices; Changes in income and prices: income and substitution effect." },
+            { "title": "5. Production and Cost", "topics": "Time frame in production; The production function; Short-run vs long-run production; Short-run: total product, marginal product and average product, law of variable proportion, law of diminishing marginal return, three stages of production, various measures of costs, cost curves and their shapes; Short-run production and cost relation; Long-run: production iso-quant and iso-cost, optimal combination of inputs; The relation between short-run and long-run costs; Economies and diseconomies of scale." },
+            { "title": "6. Product Market Structure", "topics": "Perfect competition: competitive market and its characteristics, short-run equilibrium analysis, long-run equilibrium, supply curve. Monopoly: characteristics, why monopolies arise, equilibrium of the monopolist, price discrimination. Monopolistic competition: short-run and long-run equilibrium. Oligopoly: collusive and non-collusive oligopoly." },
+            { "title": "7. The Factor Markets", "topics": "The demand for labor; The supply of labor; Equilibrium in the labor market; Changes in equilibrium; Equilibrium in the other factor markets: land and capital." }
+          ],
+          "basicTexts": [
+            "Gregory N. Mankiw, Principles of Microeconomics, 8th Edition, South-Western Cengage Learning",
+            "Michael Parkin, Economics, 11th Edition, Pearson"
+          ],
+          "referenceBooks": [
+            "A. Koutsoyiannis, Modern Microeconomics, 2nd Edition, Macmillan Education",
+            "Christopher R. Thomas & S. Charles Maurice, Managerial Economics: Foundation of Business Analysis and Strategy, 12th Edition, McGraw Hill Education",
+            "Thomas J. Webster, Managerial Economics: Theory and Practice, Academic Press"
+          ]
+        },
+        {
+          "code": "BCC 108",
+          "title": "Business Statistics",
+          "marks": 100,
+          "credit": 3,
+          "breakdown": { "written": 75, "internal": 20, "viva": 5 },
+          "objective": "The course provides insight into the statistical processes of data classification, description, presentation, and association. Learning objectives: (1) learn the basic concept of statistics; (2) understand the nature of data and the presentation of data in different forms; (3) measure central tendency and dispersion of data; (4) learn probability calculation and its application; (5) compute correlation and regression between variables; (6) learn forecasting and measures of index number; (7) learn tools for statistical process control.",
+          "contents": [
+            { "title": "1. Introduction", "topics": "Meaning of statistics; Business statistics; Types of statistics; Types of variables; Levels of measurement; Uses of statistics in business; Limitations of statistics." },
+            { "title": "2. Describing Data (Tabular and Graphical Presentation)", "topics": "Constructing a frequency distribution; Bar chart; Pie chart; Frequency histogram; Frequency curve; Frequency polygon; Ogive curve." },
+            { "title": "3. Describing Data (Numerical Measures)", "topics": "(a) Measures of central tendency: definition, mean, median, mode and weighted mean. (b) Measures of dispersion: definition, types, range, variance, standard deviation, coefficient of variation." },
+            { "title": "4. A Survey of Probability Concept", "topics": "Meaning; Different approaches; Probability rules; Bayes' theorem." },
+            { "title": "5. Probability Distribution", "topics": "Definition; Random variable; Mean, variance and standard deviation of a probability distribution; Definition, characteristics and examples of Binomial, Poisson and Normal probability distributions." },
+            { "title": "6. Correlation and Linear Regression", "topics": "Introduction; Correlation analysis; The coefficient of correlation; The coefficient of determination; Significance of the study of correlation and causation; Types of correlation; Scatter diagram method; Karl Pearson's coefficient of correlation; Rank correlation coefficient; Regression analysis: least square principle, drawing the line of regression, problems regarding regression analysis." },
+            { "title": "7. Time Series and Forecasting", "topics": "Introduction; Components of time series; Measures of trend; Graphic method; Method of semi-averages; The moving average method; Least squares method; Seasonal variation; Deseasonalizing data; Using deseasonalized data to forecast." },
+            { "title": "8. Index Number", "topics": "Introduction; Simple index numbers; Why convert data to indexes? Construction of index numbers; Weighted indexes; Unweighted indexes; Value index; Special purpose indexes; Consumer Price Index; Shifting the base." },
+            { "title": "9. Statistical Process Control", "topics": "Types of control charts; Mean charts; Range chart; C chart; p chart; Benefits and limitations of statistical quality control." }
+          ],
+          "basicTexts": [
+            "Lind, Marchal & Wathen, Statistical Techniques in Business and Economics"
+          ],
+          "referenceBooks": [
+            "Lind, Mason & Marchal, Basic Statistics for Business and Economics",
+            "Richard Levin & David S. Rubin, Statistics for Management",
+            "M.K. Roy and J.C. Paul, Business Statistics"
+          ]
+        },
+        {
+          "code": "BCC 109",
+          "title": "Business Law",
+          "marks": 100,
+          "credit": 3,
+          "breakdown": { "written": 75, "internal": 20, "viva": 5 },
+          "objective": "This course aims at improving the understanding of students in business decisions affected by the legal framework of the national and international context. The course has been designed to provide specific knowledge on law of contract, Companies Act, Labor codes, Negotiable Instruments and Sale of goods.",
+          "contents": [
+            { "title": "1. Introduction", "topics": "Defining and understanding law & business law; Society/community and rule of law; Commercial or mercantile law; Limitations and challenges of commercial law." },
+            { "title": "2. Law of Contract", "topics": "Concept of contract, objective and scope; Essential elements of contract; Classification of contract; Offer and acceptance; Revocation; Void and voidable agreements; Free consent; Bailment & pledge; Law of agency; Termination or discharge of contracts; Case studies." },
+            { "title": "3. Law Relating to Company", "topics": "(i) Introduction: definition of company, origin of company law, Companies Act 1994, essential elements of company, types of company, converting a private limited company to public limited and vice versa. (ii) Formation: who are promoters, stages of company formation, various documents of company formation, preparing Memorandum of Association and Articles of Association, prospectus etc. (iii) Management and administration: directors, managing directors or company secretary, meetings and resolutions, accounts and audit. (iv) Winding up: compulsory winding up by the court; voluntary winding up by the members themselves and by the creditors; voluntary winding up under the supervision of the court." },
+            { "title": "4. The Bangladesh Labor Act, 2006", "topics": "(i) A brief overview of labor law & Bangladesh Labor Code 2006. (ii) Health and hygiene, worker safety, welfare, leaves & holidays. (iii) Law relating to Workmen's Compensation Act 2006. (iv) Trade union, CBA, ILS, resolving industrial unrest, settlement of disputes." },
+            { "title": "5. Law Relating to Negotiable Instruments", "topics": "Definitions of Bill of Exchange (B/E), Promissory Note (P/N) and cheques; Acceptance and negotiations; Rights and liabilities of parties; Dishonor of negotiable instruments." },
+            { "title": "6. Sale of Goods Act", "topics": "Definition & types of goods; Goods sale & agreement to sell; Essential elements; Condition & warranty; Doctrine of caveat emptor; Transfer of ownership; Performance of contract of sale." },
+            { "title": "7. Consumer Right Protection Act 2009", "topics": "Definitions; Establishment of council; Functions of council; Duties and functions of the committees; Offences and punishments etc.; Complaint and complainant's share in fine; Exemption." },
+            { "title": "8. Bangladesh Environment Conservation Act (BECA) 1995", "topics": "Introduction to environment pollution; Salient features of Bangladesh Environment Conservation Act (BECA) 1995." },
+            { "title": "9. Law Related to Carriage", "topics": "Carriage by land; Carriage by air; Carriage by sea." }
+          ],
+          "basicTexts": [
+            "Workmen's Compensation Act, 1923",
+            "Bangladesh Companies Act",
+            "A.K. Sen and I.K. Mitra, Commercial Law and Industrial Law, World Press Ltd, Calcutta",
+            "A.A. Khan, Bangladesh Labor and Industrial Law"
+          ],
+          "referenceBooks": [
+            "Tejpal Sheth, Business Law (Pearson Edition)",
+            "Bangladesh Labor Law (Code) 2006",
+            "Dr. M. Jahir, Companies & Securities Law"
+          ]
+        },
+        {
+          "code": "BCC 110",
+          "title": "Information Technology in Business",
+          "marks": 100,
+          "credit": 3,
+          "breakdown": { "written": 75, "internal": 20, "viva": 5 },
+          "objective": "",
+          "contents": [
+            { "title": "Chapter 1: Information System in Global Business Today", "topics": "Trends of information system in the current global world; Global challenges and opportunities of information system; Dimensions of information system; Approaches of information system; Trends of information systems in Bangladesh." },
+            { "title": "Chapter 2: Information System in Business and E-business", "topics": "Organization and features; Impacts of information systems in organizations; Business processes, systems for different management groups in business; Collaboration and social business; Relevant cases." },
+            { "title": "Chapter 3: Strategic Information System", "topics": "Porter's competitive forces model and competitive strategies using information system; Business value chain model, synergies, core competencies and network-based strategies; Sustaining competitive advantages, aligning information system with business objectives; Relevant cases." },
+            { "title": "Chapter 4: IT Infrastructure and Emerging Technologies", "topics": "Concepts of information system; Evolution of information system; Current trends of hardware and software platforms; Challenges of information system infrastructure; Relevant cases." },
+            { "title": "Chapter 5: Fundamentals of Business Intelligence: Database and Information Management", "topics": "Traditional file management; Database management; Information tools and technologies to improve business performance and decision making; Data administration and data quality." },
+            { "title": "Chapter 6: Telecommunications, the Internet, and Wireless Technologies", "topics": "Networking and communication trends; Types of networks; Internet technology and its role in business; Wireless networking, communication and internet access." },
+            { "title": "Chapter 7: E-commerce: Digital Markets and Digital Goods & Mobile Finance Services", "topics": "Concepts of e-commerce, digital markets and digital goods; E-commerce business models and revenue models; E-commerce and its impact in marketing and business-to-business transactions; M-commerce and its applications; Mobile finance services in Bangladesh; Relevant cases." },
+            { "title": "Chapter 8: Ethical and Social Issues in Information System, and Securing Information System", "topics": "Ethical, social and political issues; Principles to guide ethical decisions; Property rights: intellectual property; Information systems vulnerable to destruction, error and abuse; Business value of security and control; Organizational framework for security and control; Relevant cases." }
+          ],
+          "basicTexts": [
+            "Kenneth C. Laudon, Jane P. Laudon, Management Information Systems: Managing the Digital Firm, 15th Edition, Pearson, India"
+          ],
+          "referenceBooks": [
+            "James A. O'Brien, George M. Marakas, Management Information Systems, 10th Edition, McGraw Hill, India"
+          ]
+        }
+      ]
+    }
+  ]
+}
