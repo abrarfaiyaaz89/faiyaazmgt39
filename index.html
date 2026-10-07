@@ -68,6 +68,7 @@ section{padding:44px 0}h2{font-size:clamp(24px,5vw,32px);margin-bottom:6px}.sub{
 [data-lb]{cursor:zoom-in}
 .nr{display:flex;gap:8px;order:3}.links{order:2;margin-left:auto;margin-right:12px}
 .tgl{width:42px;height:42px;border:1px solid var(--bd);border-radius:12px;background:none;color:var(--tx);font-size:18px;cursor:pointer;transition:.2s}.tgl:hover{background:var(--ac2)}
+.soc{display:flex;gap:10px;margin-top:12px}.soc a{width:42px;height:42px;border-radius:12px;border:1px solid var(--bd);display:grid;place-items:center;color:var(--tx);transition:.2s}.soc a:hover{background:var(--ac2);color:var(--ac);transform:translateY(-2px)}.soc svg{width:20px;height:20px}
 footer{text-align:center;color:var(--mu);font-size:13px;padding:30px 0 50px}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 .fade{animation:f .4s ease both}@keyframes f{from{opacity:0;transform:translateY(8px)}}
@@ -112,7 +113,7 @@ const EVENTS=[
  {id:"hall-fest-2026",name:"Hall Fest-2026",date:"10 Sep 2026",place:"Shahjalal Hall Dining · Department of Management",photos:["hallfest-01.jpg","hallfest-02.jpg","hallfest-03.jpg","hallfest-04.jpg","hallfest-05.jpg","hallfest-06.jpg"]}
 ];
 
-const DEV={name:"Abrar Faiyaaz",role:"MGT-39 · Web Developer",phone:"01852268399",email:"abrarfaiyaaz89@gmail.com",photo:"abrar.jpg"};
+const DEV={name:"Abrar Faiyaaz",role:"MGT-39 · Web Developer",phone:"01852268399",email:"abrarfaiyaaz89@gmail.com",photo:"abrar.jpg",facebook:"https://www.facebook.com/share/1EZiwvt3J5/",instagram:"https://www.instagram.com/abrarfaiyaaz"};
 /* ============ UI ============ */
 const $=s=>document.querySelector(s),app=$("#app"),e=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 $("#yr").textContent=new Date().getFullYear();
@@ -127,7 +128,7 @@ const semCards=()=>SEMESTERS.map(s=>`<a class="card" href="#/s/${s.id}"><div cla
 const gallery=()=>`<div class="gal" data-gal>${PHOTOS.map(p=>`<figure><img src="${p.src}" data-lb="${p.src}" alt="${e(p.alt)}" loading="lazy" decoding="async"><figcaption>${e(p.caption)}</figcaption></figure>`).join("")}</div>`;
 const achv=()=>ACHIEVEMENTS.length?`<div class="ach">${ACHIEVEMENTS.map(x=>{const ph=x.photos||(x.photo?[x.photo]:[]);return `<article data-gal>${ph.map((p,i)=>`<img ${i?"hidden ":""}src="${e(p)}" data-lb="${e(p)}" alt="${e(x.title)} photo ${i+1}" loading="lazy" decoding="async">`).join("")}<div class="b">${x.date?`<span class="pill" style="margin:0">${e(x.date)}</span> `:""}${ph.length>1?`<span class="pill" style="margin:0">📷 ${ph.length} photos</span>`:""}<h3>${e(x.title)}</h3>${x.text?`<p>${e(x.text)}</p>`:""}</div></article>`}).join("")}</div>`:`<div class="empty">Our achievements will be added here soon.</div>`;
 const evCards=()=>`<div class="ach">${EVENTS.map(v=>`<a class="evc" href="#/events/${v.id}"><div class="cv">${v.photos.length?`<img src="${v.photos[0]}" alt="${e(v.name)}" loading="lazy" decoding="async">`:"📸"}</div><div class="b"><h3>${e(v.name)}</h3><small>${v.photos.length?v.photos.length+" photos":"Photos coming soon"}${v.date?" · "+e(v.date):""}</small></div></a>`).join("")}</div>`;
-const about=()=>`<div class="dev"><img src="${DEV.photo}" alt="Portrait of ${e(DEV.name)}, web developer" loading="lazy"><div><small style="color:var(--mu)">Built by</small><h3>${e(DEV.name)}</h3><p>${e(DEV.role)}</p><p><a href="tel:${DEV.phone}">${DEV.phone}</a> · <a href="mailto:${DEV.email}">${DEV.email}</a></p></div></div>`;
+const about=()=>`<div class="dev"><img src="${DEV.photo}" alt="Portrait of ${e(DEV.name)}, web developer" loading="lazy"><div><small style="color:var(--mu)">Built by</small><h3>${e(DEV.name)}</h3><p>${e(DEV.role)}</p><p><a href="tel:${DEV.phone}">${DEV.phone}</a> · <a href="mailto:${DEV.email}">${DEV.email}</a></p><div class="soc"><a href="${DEV.facebook}" target="_blank" rel="noopener" aria-label="Abrar Faiyaaz on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 22v-8.2h2.8l.5-3.3h-3.3V8.4c0-.9.4-1.7 1.8-1.7h1.6V3.8c-.3 0-1.3-.2-2.4-.2-2.5 0-4.1 1.5-4.1 4.2v2.7H7.5v3.3h2.9V22h3.1z"/></svg></a><a href="${DEV.instagram}" target="_blank" rel="noopener" aria-label="Abrar Faiyaaz on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a></div></div></div>`;
 const home=()=>`<div class="hero fade"><span class="pill">Management 39 · Academic Hub</span><h1>Notes, slides &amp; <span>past questions</span>, all in one place.</h1><p>A student-built archive for Management 39. Pick your semester, open a course, and read PDFs right here.</p><a class="btn" href="#/semesters">Explore Notes →</a></div>
 <section id="sem"><h2>Semesters</h2><p class="sub">Choose a semester to see its courses.</p><div class="grid">${semCards()}</div></section>
 <section><h2>Management 39</h2><p class="sub">Our batch.</p>${gallery()}</section>
