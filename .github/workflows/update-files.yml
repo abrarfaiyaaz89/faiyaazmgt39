@@ -1,0 +1,54 @@
+name: Update file list
+on:
+  push:
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build files.json
+        run: |
+          python3 - <<'PY'
+          import os,re,json
+          from urllib.parse import quote
+          EXT={".pdf":"PDF",".pptx":"PPTX",".ppt":"PPT",".docx":"DOCX",".doc":"DOC",".xlsx":"XLSX",".zip":"ZIP"}
+          pat=re.compile(r"^([a-z]{2,5}\d{3})-(notes|slides|books|syllabus|questions)-(.+)$",re.I)
+          like=re.compile(r"^[a-z]{2,5}\d{3}-",re.I)
+          groups={}
+          for root,dirs,files in os.walk("."):
+              dirs[:]=[d for d in dirs if not d.startswith(".")]
+              for f in files:
+                  base,ext=os.path.splitext(f);ext=ext.lower()
+                  if ext not in EXT: continue
+                  m=pat.match(base)
+                  if not m:
+                      if like.match(base): print("SKIPPED (check the name):",f)
+                      continue
+                  path=os.path.relpath(os.path.join(root,f),".").replace(os.sep,"/")
+                  g=groups.setdefault((m.group(1).lower(),m.group(2).lower(),m.group(3).lower()),{"rest":m.group(3),"f":{}})
+                  g["f"][ext]=quote(path)
+          out={}
+          for (code,cat,_),g in sorted(groups.items()):
+              fs=g["f"];main=".pdf" if ".pdf" in fs else sorted(fs)[0]
+              e={"title":re.sub(r"[-_]+"," ",g["rest"]).strip().title(),"url":fs[main],"size":EXT[main]}
+              rest=[x for x in fs if x!=main]
+              if rest:e["dl"]=fs[rest[0]]
+              out.setdefault(code,{}).setdefault(cat,[]).append(e)
+          json.dump(out,open("files.json","w"),indent=1,ensure_ascii=False)
+          PY
+      - name: Save and rebuild site
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add files.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update files.json"
+            git push
+            gh api --method POST /repos/${{ github.repository }}/pages/builds || true
+          fi
