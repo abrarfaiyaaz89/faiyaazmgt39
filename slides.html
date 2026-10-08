@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Slides</title>
+<style>
+:root{color-scheme:dark}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{background:#0e0d1a;color:#eceaff;font:15px system-ui,sans-serif;display:flex;flex-direction:column;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+header{display:flex;align-items:center;gap:10px;padding:10px 12px}
+header b{flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+button{background:#1b1930;color:#eceaff;border:1px solid #2e2b4d;border-radius:10px;padding:9px 14px;font:inherit;cursor:pointer}
+button:disabled{opacity:.4}
+#st{flex:1;display:grid;place-items:center;padding:4px 8px;min-height:0;position:relative}
+canvas{border-radius:8px;box-shadow:0 10px 40px #0008;background:#fff}
+#msg{position:absolute;color:#b5b0e6;text-align:center;padding:0 24px}
+#bar{height:3px;background:#2e2b4d}
+#bar i{display:block;height:100%;width:0;background:#8b7cf6;transition:width .2s}
+footer{display:flex;align-items:center;justify-content:space-between;padding:12px}
+#cnt{color:#b5b0e6;font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body>
+<header><button id="back">&larr; Back</button><b id="t">Slides</b><button id="fs" aria-label="Fullscreen">&#x26F6;</button></header>
+<div id="st"><div id="msg">Loading slides…</div><canvas id="c"></canvas></div>
+<div id="bar"><i></i></div>
+<footer><button id="pv">&larr; Prev</button><span id="cnt">0 / 0</span><button id="nx">Next &rarr;</button></footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+const q=new URLSearchParams(location.search),f=q.get('f')||'',t=q.get('t')||'Slides';
+$('#t').textContent=t;document.title=t;
+const msg=m=>{const e=$('#msg');e.hidden=false;e.textContent=m;$('#c').style.display='none'};
+let pdf,n=1,busy=false,pend=null;
+async function show(i){
+  if(!pdf)return;
+  i=Math.max(1,Math.min(pdf.numPages,i));
+  if(busy){pend=i;return}
+  busy=true;n=i;
+  const p=await pdf.getPage(i),st=$('#st'),v=p.getViewport({scale:1});
+  const s=Math.min((st.clientWidth-16)/v.width,(st.clientHeight-8)/v.height),r=devicePixelRatio||1,c=$('#c');
+  c.width=v.width*s*r;c.height=v.height*s*r;
+  c.style.width=v.width*s+'px';c.style.height=v.height*s+'px';
+  await p.render({canvasContext:c.getContext('2d'),viewport:p.getViewport({scale:s*r})}).promise;
+  busy=false;
+  $('#cnt').textContent=i+' / '+pdf.numPages;
+  $('#bar i').style.width=(i/pdf.numPages*100)+'%';
+  $('#pv').disabled=i===1;$('#nx').disabled=i===pdf.numPages;
+  if(pend){const x=pend;pend=null;show(x)}
+}
+if(!/^[A-Za-z0-9_.\-]+\.pdf$/.test(f)){msg('Slide file not found.')}
+else{
+  pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  pdfjsLib.getDocument(f).promise.then(d=>{pdf=d;$('#msg').hidden=true;show(1)}).catch(()=>msg('Could not load these slides. Check the file name.'));
+}
+$('#pv').onclick=()=>show(n-1);
+$('#nx').onclick=()=>show(n+1);
+addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')show(n+1);if(e.key==='ArrowLeft')show(n-1)});
+let x0=null;
+$('#st').addEventListener('touchstart',e=>x0=e.touches[0].clientX,{passive:true});
+$('#st').addEventListener('touchend',e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(d)>50)show(n+(d<0?1:-1))});
+$('#fs').onclick=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();
+$('#back').onclick=()=>history.length>1?history.back():location.href='index.html';
+addEventListener('resize',()=>show(n));
+</script>
+</body>
+</html>
