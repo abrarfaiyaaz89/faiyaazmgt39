@@ -7,5 +7,30 @@
     "size": "PDF"
    }
   ]
+ },
+ "bcc109": {
+  "notes": [
+   {
+    "title": "Chapter 11 Termination Or Discharge Of Contracts",
+    "url": "bcc109-notes-chapter-11-termination-or-discharge-of-contracts.pdf",
+    "size": "PDF"
+   }
+  ]
+ },
+ "ged110": {
+  "notes": [
+   {
+    "title": "Chapter 1 Study Notes",
+    "url": "ged110-notes-chapter-1-study-notes.pdf",
+    "size": "PDF"
+   }
+  ],
+  "slides": [
+   {
+    "title": "Chapter 1 Information Systems In Global Business Today",
+    "url": "ged110-slides-chapter-1-information-systems-in-global-business-today.pdf",
+    "size": "PDF"
+   }
+  ]
  }
 }
