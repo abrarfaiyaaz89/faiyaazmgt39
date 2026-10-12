@@ -1,0 +1,41 @@
+# ID | Hometown | School | College | Birthday | Contact number
+# Leave a part empty if unknown (it shows N/A). Lines starting with # are ignored.
+
+# 4. Mahammad Abrar
+2603021004 | Chattogram |  |  |  | 
+# 9. Atik Hasan Mahi
+2603021009 | Khagrachhari |  |  |  | 
+# 11. Abrahi Rahman Seam
+2603021011 |  |  | Govt. Commerce College |  | 
+# 13. Alifa Abiba Mumu
+2603021013 | Cox's Bazar |  |  |  | 
+# 15. Mohammod Tasnim Shah
+2603021015 | Dinajpur |  |  |  | 
+# 16. Md. Abubokkor Siddik
+2603021016 | Kustia |  |  |  | 
+# 17. Ather Israq
+2603021017 | Feni |  |  |  | 
+# 18. Miftahul Zannat Sadida
+2603021018 | Chattogram | Chattogram University Laboratory School and College | Chattogram University Laboratory School and College |  | 
+# 21. Farhin Tasnuva
+2603021021 | Feni |  | Govt. Commerce College |  | 
+# 22. Abrar Faiyaaz
+2603021022 | Mirsarai, Chattogram | Jorarganj Bouddha High School | Govt. Commerce College | 6 September | 01852268399
+# 25. Tamima Mallick Saba
+2603021025 |  |  | Govt. Commerce College |  | 
+# 30. Irfan Newaz
+2603021030 |  |  | Notre Dame College |  | 
+# 31. Rakibul Hosan
+2603021031 | Jorarganj, Chattogram | Jorarganj Bouddha High School | Mohazonhat Fazlur Rahman School and College | 12 November | 
+# 33. Md. Shynan Mashnur Aabesh
+2603021033 | Chattogram |  | Govt. Commerce College |  | 
+# 35. Nival Rahman
+2603021035 | Cox's Bazar |  |  |  | 
+# 46. Md. Rokan Uddin Mahmud
+2603021046 |  | Chattogram University Laboratory School and College | Chattogram University Laboratory School and College |  | 
+# 54. Sajia Mostakim Rutmila
+2603021054 |  | Chattogram University Laboratory School and College | Chattogram University Laboratory School and College |  | 
+# 56. Israt Jairin Chy Taha
+2603021056 | Sitakunda, Chattogram |  | Govt. Commerce College |  | 
+# 57. Md. Rubaiyat Hasan
+2603021057 | Dhaka |  | Rajuk Uttara Model College |  |
