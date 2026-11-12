@@ -84,7 +84,28 @@ footer{padding-left:20px;padding-right:20px;line-height:1.6}footer{text-align:ce
  <link rel="stylesheet" href="theme.css">?v=3
 <script defer src="theme.js"></script>?v=3
  <script defer src="polish.js"></script>
-<footer>© <span id="yr"></span> Faiyaaz MGT 39 · Made for Management 39<br>Study materials are shared for educational purposes only. Copyright owners, or anyone pictured here, can ask for removal using the contact options above.</footer>
+<style>
+.hero h1.hh span{background:none!important;-webkit-background-clip:border-box!important;background-clip:border-box!important;color:var(--tx)!important;-webkit-text-fill-color:var(--tx)!important}
+.hero h1.hh em span{color:transparent!important;-webkit-text-fill-color:transparent!important;-webkit-text-stroke:2px var(--tx)}
+.sun{right:-16%!important;top:-14%!important;width:64%!important}
+.kick{margin:0 0 118px!important;max-width:42%!important;letter-spacing:.1em!important;font-size:10px!important;line-height:1.5!important}
+.bdg{background:var(--bg);border:1px solid var(--bd);border-radius:50%;box-shadow:var(--sh);right:14px!important;top:12px!important;width:98px!important;height:98px!important}
+.bdg svg{padding:6px;box-sizing:border-box}
+.bdg text{fill:var(--tx)!important}
+.mgi{width:calc((100% - 12px)/var(--n,5))!important}
+.mgapp:not(.mgpill){background:none!important;box-shadow:none!important;border:0!important;padding:0!important;border-radius:0!important;pointer-events:none}
+.mgapp .mgpill,.mgapp.mgpill{pointer-events:auto;display:flex!important;align-items:center;justify-content:space-between;gap:12px;width:100%;box-sizing:border-box;background:linear-gradient(135deg,var(--ac),var(--hot))!important;color:var(--on)!important;box-shadow:0 20px 40px -16px var(--hot)!important;border:0!important;border-radius:22px!important;padding:14px 16px!important;font-size:17px!important;font-weight:700!important}
+.mgapp .mgpill *{color:inherit!important}
+.mgapp .mgpill button,.mgapp .mgpill [aria-label*=lose]{background:rgba(0,0,0,.16)!important;border-radius:14px!important;min-width:44px;min-height:44px}
+</style>
+<script>
+(function(){var PH='<svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/></svg>';
+function dock(){var d=document.querySelector(".mgdock");if(!d)return false;var sync=function(){var as=d.querySelectorAll("a");d.style.setProperty("--n",as.length);[].forEach.call(as,function(a){if(!a.querySelector("svg"))a.insertAdjacentHTML("afterbegin",PH)})};sync();new MutationObserver(sync).observe(d,{childList:true,subtree:true});return true}
+function bgOn(x){var c=getComputedStyle(x);return(c.backgroundColor!=="rgba(0, 0, 0, 0)"&&c.backgroundColor!=="transparent")||c.backgroundImage!=="none"}
+function pill(){var f=document.querySelector(".mgapp");if(!f)return false;if(document.querySelector(".mgpill"))return true;var els=[].slice.call(f.querySelectorAll("*")).filter(function(x){return x.textContent.indexOf("Get the MGT-39 app")>-1&&bgOn(x)});(els[0]||f).classList.add("mgpill");return true}
+var dd=false,pp=false,n=0,iv=setInterval(function(){if(!dd)dd=dock();if(!pp)pp=pill();if((dd&&pp)||++n>60)clearInterval(iv)},500)})();
+</script>
+ <footer>© <span id="yr"></span> Faiyaaz MGT 39 · Made for Management 39<br>Study materials are shared for educational purposes only. Copyright owners, or anyone pictured here, can ask for removal using the contact options above.</footer>
 <script>
 /* ============ CONTENT DATA — edit ONLY this file to grow the site ============
  EXAMPLE: notes:[{title:"Chapter 1 Notes",url:"pom-ch1.pdf"},{title:"Chapter 2 Notes",url:"pom-ch2.pdf"}]
